@@ -24,15 +24,7 @@
     <!-- Prevent session bleed caused by single threaded embedded browser and sessionStorage API -->
     <!-- https://github.com/cerner/fhir-client-cerner-additions -->
     <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
-    <script>
-      document.getElementById('cernerpic').addEventListener("click", function() {
-        console.log("button was clicked");
-        FHIR.oauth2.authorize({
-          'client_id': '3d33f3ac-d94e-4d8c-92b8-54f993cb68c1',
-          'scope':  'patient/Patient.read patient/Observation.read launch online_access openid profile'
-        });
-      });
-    </script>
+    
     <img id='cernerpic' src='./cerner.jpg' style='width: 99vw; height: 98vh;'></img>
     <div class="spinner">
       <div class="bounce1"></div>
@@ -40,4 +32,13 @@
       <div class="bounce3"></div>
     </div>
   </body>
+  <script>
+    document.getElementById('cernerpic').addEventListener("click", function() {
+      console.log("button was clicked");
+      FHIR.oauth2.authorize({
+        'client_id': '3d33f3ac-d94e-4d8c-92b8-54f993cb68c1',
+        'scope':  'patient/Patient.read patient/Observation.read launch online_access openid profile'
+      });
+    });
+  </script>
 </html>
